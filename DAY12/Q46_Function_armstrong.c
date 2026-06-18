@@ -9,19 +9,20 @@ int isArmstrong(int n){
       count++;
   }
    
-   temp = n;  
-   int sum = 0, digit;
+  temp = n;  
+  int sum = 0, digit;
    
-   while(temp != 0) {
-       digit = temp % 10;
-       sum = sum + (int)pow(digit, count);
-       temp = temp / 10;
-   }
-   
-   if(sum == n)
-       return 1;
-   else
-       return 0;
+  while(temp != 0) {
+      digit = temp % 10;
+      int power = 1;
+      for(int i = 0; i < count; i++)
+          power *= digit;
+      sum += power;
+      temp = temp / 10;
+  }
+if(sum == n)
+return 1;
+else return 0;
 }
 
 int main(){
